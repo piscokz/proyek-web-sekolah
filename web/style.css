@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  overflow-x: hidden;
+}
+
+.logo {
+  display: flex;
+  letter-spacing: 3px;
+}
+
+img {
+  margin-left: 20px;
+}
+
+.brand {
+  background: #ffffff;
+  padding: 60px 0px 20px 0px;
+  border-radius: 8px;
+  position: fixed;
+  z-index: -2;
+  box-shadow: 8px 8px 11px -5px rgba(0,8,0,0.8);
+
+}
+
+nav {
+  display: flex;
+  background-color: cadetblue;
+  justify-content: space-around;
+  /* padding: 20px 0; */
+  align-items: center;
+  height: 50px;
+  box-shadow: 0px 5px 11px -5px rgba(0,8,0,0.8);
+  color: whitesmoke;
+}
+
+nav logo {
+  letter-spacing: 3px;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  width: 40%;
+  justify-content: space-between;
+  transition: all 1s;
+}
+
+
+
+nav ul li a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+/* hamburger menu */
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+  display: none;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  left: -5px;
+  top: -5px;
+  height: 28px;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: aliceblue;
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+
+/* hamburger menu animation */
+
+.menu-toggle span:nth-child(2) {
+
+  transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4) {
+
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(40deg); translate:(-1px, -1px);
+  background-color: red;
+  
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  opacity: 0;
+}
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-40deg); translate:(-1px, 0);
+  background-color: red;
+  
+}
+
+
+/*responsive breakpoint*/
+
+/* ukuran tablet */
+@media screen and (max-width: 540px) {
+  .menu-toggle{
+    display: flex;
+  }
+  nav ul {
+    transition: all 1s;
+    position: absolute;
+    right: 0;
+    width: 30%;
+    top: 0;
+    background: #000;
+    height: 100vh;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    z-index: -1;
+    opacity: 0;
+    transform: translate(100%);
+    background-color: rgb(71, 117, 119);
+  }
+
+  nav ul.slide {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ukuran mobile */
